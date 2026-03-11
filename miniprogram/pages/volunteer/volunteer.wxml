@@ -1,0 +1,29 @@
+<view class="container">
+  <view class="header">
+    <text class="title">爱心志愿者</text>
+    <text class="subtitle">热心邻里 陪伴您乐享晚年生活</text>
+  </view>
+
+  <view class="appointment-sticker" wx:if="{{myAppointment}}">
+    <view class="sticker-tag">您的预约</view>
+    <view class="sticker-content">
+      <image class="sticker-avatar" src="{{myAppointment.avatar}}" mode="aspectFill"></image>
+      <view class="sticker-info">
+        <view class="sticker-name">{{myAppointment.name}}</view>
+        <view class="sticker-time">{{myAppointment.time}}</view>
+      </view>
+      <view class="sticker-cancel" catchtap="cancelOrder">取消</view>
+    </view>
+  </view>
+
+  <view class="volunteer-list">
+    <view class="volunteer-card" wx:for="{{volunteerList}}" wx:key="id" bindtap="onVolunteerTap" data-id="{{item.id}}">
+      <image class="volunteer-avatar" src="{{item.avatar}}" mode="aspectFill"></image>
+      <view class="volunteer-info">
+        <view class="volunteer-name">{{item.name}}</view>
+        <view class="volunteer-intro">{{item.introduction}}</view>
+        <view class="volunteer-btn">查看详情</view>
+      </view>
+    </view>
+  </view>
+</view>

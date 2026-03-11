@@ -1,0 +1,42 @@
+<view class="container">
+  <agent-ui 
+    id="myAgent"
+    agentConfig="{{agentConfig}}" 
+    showBotAvatar="{{showBotAvatar}}" 
+    chatMode="{{chatMode}}" 
+    modelConfig="{{modelConfig}}">
+  </agent-ui>
+
+  <view class="menu-wrapper" wx:if="{{!isInitialState}}" style="z-index: 100;">
+    <view class="menu-main" bindtap="toggleMenu">
+      <view class="breath-dot"></view>
+      <view class="menu-title">猜你喜欢</view>
+    </view>
+    <view class="menu-list" wx:if="{{menuExpanded}}">
+      <view class="menu-item" bindtap="sendSuggest" data-q="怎么查今年的养老金到账没？">📜 查养老金到账</view>
+      <view class="menu-item" bindtap="sendSuggest" data-q="最近温差大，老年人要注意什么？">🌤️ 降温注意什么</view>
+      <view class="menu-item" bindtap="sendSuggest" data-q="给我讲一个关于老北京的故事吧">📻 听听怀旧故事</view>
+    </view>
+  </view>
+
+  <video 
+    wx:if="{{videoUrl}}"
+    class="logo-video-ball {{isInitialState ? 'fullscreen' : 'fixed-top-square'}}" 
+    src="{{videoUrl}}" 
+    autoplay 
+    loop 
+    muted 
+    enable-progress-gesture="{{false}}"
+    show-center-play-btn="{{false}}" 
+    controls="{{false}}" 
+    object-fit="cover" 
+    bindtap="onBallTap"
+    style="z-index: 1;">
+  </video>
+
+  <view class="guide-tips" wx:if="{{isInitialState}}" bindtap="onBallTap">
+  <view class="guide-text-gradient">
+    <text class="inner-stream-text">点击唤醒小安，开启提问之旅</text>
+  </view>
+</view>
+</view>

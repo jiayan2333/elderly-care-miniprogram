@@ -1,0 +1,137 @@
+
+
+.container {
+  background-color: #fdfaf7;
+  min-height: 100vh;
+  padding-bottom: 40rpx;
+}
+
+/* 页面标题  */
+.page-header {
+  padding: 40rpx 30rpx 20rpx;
+}
+
+.page-title {
+  font-size: 40rpx;
+  font-weight: 700;
+  color: #1a1a1a;
+}
+
+
+.loading-wrap,
+.error-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 160rpx 0;
+}
+
+.loading-spinner {
+  width: 60rpx;
+  height: 60rpx;
+  border: 6rpx solid #f3e8d2;
+  border-top-color: #d97706;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.loading-wrap text,
+.error-text {
+  font-size: 28rpx;
+  color: #888;
+  margin-top: 24rpx;
+}
+
+/* 活动卡片 */
+.activity-card {
+  display: flex;
+  background: #ffffff;
+  margin: 24rpx 30rpx;
+  border-radius: 28rpx;
+  overflow: hidden;
+  box-shadow: 0 10rpx 26rpx rgba(0, 0, 0, 0.06);
+}
+
+/* 封面 */
+.activity-cover {
+  width: 220rpx;
+  height: 220rpx;
+  background: #f3f4f6;
+  flex-shrink: 0;
+}
+
+/* 右侧信息 */
+.activity-info {
+  flex: 1;
+  padding: 26rpx 28rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* 标题 */
+.activity-title {
+  font-size: 32rpx;
+  font-weight: 600;
+  color: #222;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.activity-title text:first-child {
+  margin-right: 12rpx;
+}
+
+/* 官方标签 */
+.official-tag {
+  font-size: 22rpx;
+  color: #d97706;
+  background: #fff7e6;
+  padding: 4rpx 12rpx;
+  border-radius: 20rpx;
+}
+
+/* 元信息 */
+.activity-meta {
+  font-size: 26rpx;
+  color: #666;
+  margin-top: 8rpx;
+}
+
+/* 报名按钮 */
+.apply-btn {
+  margin-top: 18rpx;
+  align-self: flex-start;
+  padding: 0 30rpx;
+  height: 64rpx;
+  line-height: 64rpx;
+  border-radius: 32rpx;
+  font-size: 26rpx;
+}
+
+/* 禁用兜底（已满 / 已报名） */
+.apply-btn[disabled] {
+  background: #e5e7eb !important;
+  color: #9ca3af !important;
+  opacity: 0.85;
+}
+
+.apply-btn.disabled {
+  background: #f3f4f6 !important;
+  color: #6b7280 !important;
+}
+
+
+/* 禁用态 */
+.apply-btn[disabled] {
+  background: #eee !important;
+  color: #999 !important;
+}

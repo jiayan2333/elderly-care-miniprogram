@@ -1,0 +1,92 @@
+
+.container {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #f5f7fa 0%, #e8ecf1 100%);
+    padding-bottom: 30rpx;
+}
+
+.header {
+    background: linear-gradient(135deg, #8EC7FC 0%, #DEC4FF 100%);
+    padding: 60rpx 30rpx 40rpx;
+    text-align: center;
+}
+
+.title {
+    display: block;
+    font-size: 48rpx;
+    font-weight: bold;
+    color: #0D47A1;
+    margin-bottom: 16rpx;
+}
+
+.subtitle {
+    display: block;
+    font-size: 28rpx;
+    color: #0D47A1;
+}
+
+.counselor-list {
+    padding: 30rpx;
+}
+
+.counselor-card {
+    display: flex;
+    background: #ffffff;
+    border-radius: 20rpx;
+    padding: 30rpx;
+    margin-bottom: 24rpx;
+    box-shadow: 0 4rpx 20rpx rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+}
+
+.counselor-card:active {
+    transform: scale(0.98);
+    box-shadow: 0 2rpx 10rpx rgba(0, 0, 0, 0.12);
+}
+
+.counselor-avatar {
+    width: 140rpx;
+    height: 140rpx;
+    border-radius: 50%;
+    background: #f0f0f0;
+    flex-shrink: 0;
+    border: 4rpx solid #8EC7FC;
+}
+
+.counselor-info {
+    flex: 1;
+    margin-left: 24rpx;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.counselor-name {
+    font-size: 36rpx;
+    font-weight: bold;
+    color: #333333;
+    margin-bottom: 12rpx;
+}
+
+.counselor-intro {
+    font-size: 28rpx;
+    color: #666666;
+    line-height: 1.6;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-bottom: 16rpx;
+}
+
+.counselor-btn {
+    display: inline-block;
+    padding: 12rpx 32rpx;
+    background: linear-gradient(135deg, #8EC7FC 0%, #DEC4FF 100%);
+    color: #0D47A1;
+    font-size: 26rpx;
+    border-radius: 50rpx;
+    text-align: center;
+    align-self: flex-start;
+}

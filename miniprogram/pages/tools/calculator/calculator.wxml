@@ -1,0 +1,21 @@
+<view class="calc-container">
+  <view class="calc-screen">
+    <text class="result-text">{{displayValue || '0'}}</text>
+  </view>
+
+  <view class="calc-main">
+    <view class="calc-row" wx:for="{{keyRows}}" wx:for-item="row" wx:key="index">
+      <button 
+        wx:for="{{row}}" 
+        wx:key="item" 
+        class="calc-btn {{item === '=' ? 'btn-equal' : (item === '清空' ? 'btn-clear' : '')}}" 
+        hover-class="button-hover"
+        bindtap="onTap" 
+        data-val="{{item}}">
+        {{item}}
+      </button>
+    </view>
+  </view>
+
+  <view class="footer-tip">提示：点击数字开始计算，按“=”看结果</view>
+</view>

@@ -1,0 +1,50 @@
+<view class="container">
+  <!-- 轮播图 -->
+  <view class="swiper-container">
+    <swiper
+      class="swiper"
+      indicator-dots="{{true}}"
+      autoplay="{{false}}"
+      interval="{{3000}}"
+      duration="{{500}}"
+      circular="{{true}}"
+      indicator-color="rgba(255, 255, 255, 0.5)"
+      indicator-active-color="#fff"
+    >
+      <swiper-item wx:for="{{bannerList}}" wx:key="index">
+        <image
+          class="swiper-image"
+          src="{{item}}"
+          mode="aspectFill"
+          bindtap="previewImage"
+          data-url="{{item}}"
+          data-urls="{{bannerList}}"
+        />
+      </swiper-item>
+    </swiper>
+    <view class="scroll-hint">
+      <text class="hint-text">← 左滑学习更多图文知识 →</text>
+    </view>
+  </view>
+
+  <!-- 视频列表 -->
+  <view class="video-list">
+    <view
+      class="video-item"
+      wx:for="{{videoList}}"
+      wx:key="index"
+    >
+      <text class="video-title">{{item.title}}</text>
+
+      <video
+        src="{{item.url}}"
+        poster="{{item.poster || ''}}"
+        controls
+        show-mute-btn
+        enable-play-gesture
+        object-fit="cover"
+        style="width: 100%; height: 320rpx;"
+      ></video>
+    </view>
+  </view>
+</view>

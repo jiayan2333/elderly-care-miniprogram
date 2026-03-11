@@ -1,0 +1,34 @@
+<view class="magnifier-container">
+  <camera 
+    device-position="back" 
+    flash="{{flashStatus}}" 
+    zoom="{{zoomValue}}" 
+    class="camera-view">
+    
+    <view class="focus-ui">
+      <view class="corner top-left"></view>
+      <view class="corner top-right"></view>
+      <view class="corner bottom-left"></view>
+      <view class="corner bottom-right"></view>
+    </view>
+
+    <view class="gesture-tip">
+      <text class="tip-icon">🖐️</text>
+      <text>请在方框外“双指张开”放大</text>
+    </view>
+  </camera>
+
+  <view class="control-panel">
+    <button 
+      class="flash-btn {{flashStatus === 'torch' ? 'btn-on' : ''}}" 
+      bindtap="toggleFlash">
+      <text class="icon">{{flashStatus === 'torch' ? '💡' : '🔦'}}</text>
+      <text>{{flashStatus === 'torch' ? '关闭手电筒' : '开启手电筒'}}</text>
+    </button>
+
+    <view class="bottom-info">
+      <view class="info-item">✅ 支持双指缩放</view>
+      <view class="info-item">✅ 自动对焦</view>
+    </view>
+  </view>
+</view>

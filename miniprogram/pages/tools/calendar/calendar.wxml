@@ -1,0 +1,32 @@
+<view class="calendar-container">
+  <view class="fortune-stamp">{{fortune}}</view>
+
+  <view class="date-card">
+    <view class="year-month">{{year}}年{{month}}月</view>
+    <view class="day-number">{{day}}</view>
+    <view class="week-day">星期{{week}}</view>
+  </view>
+
+  <view class="lucky-section">
+    <view class="zen-quote">“{{zenQuote}}”</view>
+    <view class="lucky-row">
+      <view class="lucky-tag-mini">福星</view><text>{{luckyZodiac}}</text>
+      <view class="lucky-tag-mini">喜神</view><text>{{luckyDirection}}</text>
+      <view class="lucky-tag-mini">吉时</view><text>{{luckyHour}}</text>
+    </view>
+  </view>
+
+  <view class="luck-board">
+    <view class="luck-item yi">
+      <view class="luck-tag">宜</view>
+      <view class="luck-content">{{yiContent}}</view>
+    </view>
+    <view class="luck-divider"></view>
+    <view class="luck-item bi">
+      <view class="luck-tag">避</view>
+      <view class="luck-content">{{biContent}}</view>
+    </view>
+  </view>
+
+  <view class="shake-tips">—— 摇一摇手机 抽取今日签 ——</view>
+</view>

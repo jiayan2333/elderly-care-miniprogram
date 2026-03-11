@@ -1,0 +1,72 @@
+{
+  "pages": [
+      "pages/first/first",
+      "pages/shop/shop",
+      "pages/ai/ai",
+      "pages/me/me",
+      "pages/daily/daily",
+      "pages/psychology/psychology",
+      "pages/entertainment/entertainment",
+      "pages/firstClock/firstClock",
+      "pages/firstTxtpro/firstTxtpro",
+      "pages/firstactivity/firstactivity",
+      "pages/firstfood/firstfood",
+      "pages/tools/magnifier/magnifier",
+      "pages/tools/calculator/calculator",
+      "pages/tools/calendar/calendar",
+      "pages/psychology_counseling/psychology_counseling",
+      "pages/counselor_detail/counselor_detail",
+      "pages/volunteer/volunteer",
+      "pages/volunteer_detail/volunteer_detail",
+      "pages/vip/vip"
+  ],
+  "window": {
+      "navigationBarBackgroundColor": "#ffffff",
+      "navigationBarTextStyle": "black",
+      "navigationBarTitleText": "我的小程序",
+      "backgroundColor": "#f8f8f8",
+      "backgroundTextStyle": "light",
+      "enablePullDownRefresh": false
+  },
+  "permission": {
+    "scope.camera": {
+      "desc": "我们需要使用您的相机来实现放大镜和补光功能"
+    }
+  },
+
+  "tabBar": {
+      "color": "#7A7E83",
+      "selectedColor": "#4FACFE",
+      "borderStyle": "black",
+      "backgroundColor": "#ffffff",
+      "position": "bottom",
+      "list": [
+          {
+              "pagePath": "pages/first/first",
+              "text": "首页",
+              "iconPath": "image/home.jpg",
+              "selectedIconPath": "image/home_active.jpg"
+          },
+          {
+              "pagePath": "pages/shop/shop",
+              "text": "爱购",
+              "iconPath": "image/shop.png",
+              "selectedIconPath": "image/shop_active.jpg"
+          },
+          {
+              "pagePath": "pages/ai/ai",
+              "text": "小助手",
+              "iconPath": "image/ai.png",
+              "selectedIconPath": "image/ai_active.jpg"
+          },
+          {
+              "pagePath": "pages/me/me",
+              "text": "我的",
+              "iconPath": "image/me.png",
+              "selectedIconPath": "image/me_active.jpg"
+          }
+      ]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

@@ -1,0 +1,116 @@
+<view class="container" wx:if="{{!loading}}">
+  <view class="image-header">
+    <image class="cover-image" src="{{volunteer.avatar}}" mode="aspectFill"></image>
+    <view class="image-mask"></view>
+  </view>
+
+  <view class="header-card">
+    <view class="header-content">
+      <text class="name">{{volunteer.name}}</text>
+      <text class="school">{{volunteer.school}}</text>
+      <view class="stats">
+        <text class="stat-item">⭐ 优秀志愿者</text>
+        <text class="stat-item">⏰ 累计服务{{volunteer.serviceTime}}</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="card">
+    <view class="card-title">预约规则</view>
+    <view class="info-row">
+      <text class="label">可选服务时间</text>
+      <text class="value" style="color:#D97706; font-weight:bold;">每周 {{volunteer.availableDays[0]}}、{{volunteer.availableDays[1]}}</text>
+    </view>
+    <text class="introduction" style="font-size:26rpx; color:#92400E; display:block; margin-top:10rpx;">温馨提示：点击底部按钮填写详细预约信息。</text>
+  </view>
+
+  <view class="card">
+    <view class="card-title">基本信息</view>
+    <view class="info-row"><text class="label">教育背景</text><text class="value">{{volunteer.education}}</text></view>
+    <view class="tags"><view class="tag" wx:for="{{volunteer.tags}}" wx:key="index">{{item}}</view></view>
+  </view>
+
+  <view class="card">
+    <view class="card-title">详细介绍</view>
+    <text class="introduction">{{volunteer.introduction}}</text>
+  </view>
+
+  <view class="footer">
+    <view class="price-info"><text class="price-label">服务性质</text><text class="price-value">公益免费</text></view>
+    <button class="btn-book {{isBooked ? 'booked' : ''}}" bindtap="onBookBtn">
+      <text class="btn-icon">{{isBooked ? '✅' : '📅'}}</text>
+      <text class="btn-text">{{isBooked ? '预约成功' : '填写预约单'}}</text>
+    </button>
+  </view>
+</view>
+
+<view class="picker-mask" wx:if="{{showPicker}}" bindtap="closePicker"></view>
+
+<view class="time-picker {{showPicker ? 'show' : ''}}">
+  <view class="picker-header">
+    <text class="picker-title">填写预约陪伴申请</text>
+    <text class="close-btn" bindtap="closePicker">✕</text>
+  </view>
+
+  <scroll-view scroll-y="true" class="form-scroll">
+    <view class="form-section">
+      <view class="input-group">
+        <text class="input-label">联系姓名 <text class="required">*</text></text>
+        <input class="input-field" placeholder="请输入您的真实姓名" bindinput="onInput" data-field="userName" value="{{userName}}"/>
+      </view>
+      <view class="input-group">
+        <text class="input-label">联系电话 <text class="required">*</text></text>
+        <input class="input-field" type="number" maxlength="11" placeholder="以便志愿者与您取得联系" bindinput="onInput" data-field="userPhone" value="{{userPhone}}"/>
+      </view>
+      <view class="input-group">
+        <text class="input-label">服务地点 <text class="required">*</text></text>
+        <view class="address-box">
+          <input class="input-field address-input" placeholder="请选择或输入具体地址" bindinput="onInput" data-field="address" value="{{address}}"/>
+          <view class="location-btn" bindtap="chooseLocation">
+            <text class="loc-icon">📍</text>
+            <text>定位</text>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <view class="form-label-title">选择陪伴日期 <text class="required">*</text></view>
+    <scroll-view class="date-scroll-view" scroll-x="true" enable-flex="true">
+      <view 
+        wx:for="{{dateList}}" 
+        wx:key="index"
+        class="date-item {{item.isAvailable ? '' : 'disabled'}} {{selectedDateIdx === index ? 'active' : ''}}"
+        bindtap="onSelectDate" data-idx="{{index}}" data-available="{{item.isAvailable}}"
+      >
+        <text class="week-text">{{item.day}}</text>
+        <text class="date-text">{{item.dateText}}</text>
+        <view class="active-line" wx:if="{{selectedDateIdx === index}}"></view>
+      </view>
+    </scroll-view>
+
+    <view class="form-label-title">选择时间段 <text class="required">*</text></view>
+    <view class="time-grid">
+      <view 
+        wx:for="{{timeSlots}}" wx:key="index"
+        class="time-card {{selectedTimeIdx === index ? 'active' : ''}}"
+        bindtap="onSelectTime" data-idx="{{index}}"
+      >
+        <text class="time-range">{{item.range}}</text>
+      </view>
+    </view>
+
+    <view class="form-section">
+      <view class="input-group">
+        <text class="input-label">特殊备注 (选填)</text>
+        <textarea class="textarea-field" placeholder="如有特殊身体情况或需求请告知..." bindinput="onInput" data-field="remark" value="{{remark}}"></textarea>
+      </view>
+    </view>
+  </scroll-view>
+
+  <button class="confirm-submit-btn" bindtap="finalConfirm">立即提交预约</button>
+</view>
+
+<view class="loading" wx:if="{{loading}}">
+  <view class="loading-spinner"></view>
+  <text>加载中...</text>
+</view>

@@ -1,0 +1,71 @@
+
+<view class="container" wx:if="{{!loading}}">
+    <!-- 轮播图 -->
+    <swiper class="banner-swiper" indicator-dots="{{true}}" indicator-color="rgba(255,255,255,0.4)" indicator-active-color="#ffffff" autoplay="{{true}}" interval="3000" duration="500" bindchange="onBannerChange">
+        <swiper-item wx:for="{{counselor.bannerImages}}" wx:key="index">
+            <image class="banner-image" src="{{item}}" mode="aspectFill" bindtap="previewImage" data-url="{{item}}" data-urls="{{counselor.bannerImages}}"></image>
+        </swiper-item>
+    </swiper>
+
+    <!-- 头部信息 -->
+    <view class="header">
+        <view class="header-content">
+            <text class="name">{{counselor.name}}</text>
+            <text class="title">{{counselor.title}}</text>
+            <view class="stats">
+                <text class="stat-item">⭐ {{counselor.rating}}分</text>
+                <text class="stat-item">💬 {{counselor.consultCount}}次咨询</text>
+            </view>
+        </view>
+        <view class="header-deco"></view>
+    </view>
+
+    <!-- 基本信息卡片 -->
+    <view class="card">
+        <view class="card-title">基本信息</view>
+        <view class="info-row">
+            <text class="label">从业经验</text>
+            <text class="value">{{counselor.experience}}</text>
+        </view>
+        <view class="info-row">
+            <text class="label">教育背景</text>
+            <text class="value">{{counselor.education}}</text>
+        </view>
+        <view class="tags">
+            <view class="tag" wx:for="{{counselor.tags}}" wx:key="index">{{item}}</view>
+        </view>
+    </view>
+
+    <!-- 个人简介 -->
+    <view class="card">
+        <view class="card-title">个人简介</view>
+        <text class="introduction">{{counselor.introduction}}</text>
+    </view>
+
+    <!-- 擅长领域 -->
+    <view class="card">
+        <view class="card-title">擅长领域</view>
+        <view class="specialties">
+            <view class="specialty-item" wx:for="{{counselor.specialties}}" wx:key="index">
+                <text>{{item}}</text>
+            </view>
+        </view>
+    </view>
+
+    <!-- 底部操作按钮 -->
+    <view class="footer">
+        <view class="price-info">
+            <text class="price-label">咨询费用</text>
+            <text class="price-value">{{counselor.price}}</text>
+        </view>
+        <button class="btn-book" bindtap="onBookConsult">
+            <text class="btn-icon">📅</text>
+            <text class="btn-text">立即预约</text>
+        </button>
+    </view>
+</view>
+
+<!-- 加载中 -->
+<view class="loading" wx:if="{{loading}}">
+    <text>加载中...</text>
+</view>

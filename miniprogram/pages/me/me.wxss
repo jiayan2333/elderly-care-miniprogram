@@ -1,0 +1,189 @@
+/* 全局背景*/
+   page { 
+    background-color: #E6F3F5; 
+    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  }
+  
+  .container {
+    padding: 30rpx;
+    padding-bottom: 120rpx;
+  }
+  
+  /* 登录模块 */
+  .user-card {
+    position: relative; 
+    background: linear-gradient(145deg, #2A8CFF, #49F5A2); 
+    padding: 60rpx 40rpx;
+    border-radius: 40rpx; 
+    color: #fff;
+    margin-bottom: 40rpx;
+    box-shadow: 0 12rpx 30rpx rgba(79, 172, 254, 0.3);
+  }
+  
+  .user-info { display: flex; align-items: center; }
+  .avatar-wrapper { position: relative; margin-right: 30rpx; }
+  .avatar { 
+    width: 130rpx; height: 130rpx; 
+    border-radius: 50%; border: 6rpx solid rgba(255,255,255,0.5); 
+    background: #f0f0f0; 
+  }
+  
+  /* VIP 标签样式 */
+  .vip-badge {
+    position: absolute;
+    bottom: -10rpx;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 4rpx 16rpx;
+    background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+    color: #8B6914;
+    font-size: 18rpx;
+    font-weight: 600;
+    border-radius: 20rpx;
+    border: 2rpx solid #fff;
+    box-shadow: 0 4rpx 8rpx rgba(0, 0, 0, 0.1);
+    white-space: nowrap;
+  }
+  
+  .user-detail { flex: 1; }
+  .nickname-row { display: flex; flex-direction: row; align-items: center; justify-content: space-between; }
+  .nickname { font-size: 42rpx; font-weight: bold; text-shadow: 0 2rpx 4rpx rgba(0,0,0,0.1); }
+  .logout-btn {
+    font-size: 26rpx;
+    background: rgba(255,255,255,0.25);
+    border-radius: 30rpx;
+    padding: 8rpx 24rpx;
+    color: #fff;
+  }
+  
+  /* 工具栏 */
+  .tool-bar { 
+    display: flex; gap: 20rpx; margin-bottom: 40rpx;
+  }
+  .tool-item {
+    flex: 1; background: #fff; border-radius: 30rpx;
+    padding: 30rpx 10rpx; display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    font-size: 30rpx; border: 1rpx solid #d1e9ed;
+    color: #1A5F7A; 
+    font-weight: bold;
+    box-shadow: 0 4rpx 12rpx rgba(160, 200, 210, 0.2);
+  }
+  .tool-item:active { background: #F0F9FA; }
+  .tool-icon { font-size: 54rpx; margin-bottom: 12rpx; }
+  
+  /* 客服按钮重置样式 */
+  .contact-btn {
+    margin: 0 !important; 
+    padding: 30rpx 10rpx !important;
+    width: auto !important;
+    line-height: 1.4 !important;
+    background-color: #fff !important;
+    font-weight: bold !important;
+    color: #1A5F7A !important;
+  }
+  .contact-btn::after { border: none !important; }
+  
+  /* 康/联系信息填写 */
+  .info-group { 
+    background: #fff; border-radius: 40rpx; 
+    padding: 40rpx; margin-bottom: 30rpx;
+    border: 1rpx solid #d1e9ed;
+    box-shadow: 0 6rpx 16rpx rgba(160, 200, 210, 0.1);
+  }
+  
+  .info-header {
+    font-size: 38rpx; font-weight: bold;
+    color: #1A5F7A; margin-bottom: 30rpx;
+    display: flex; align-items: center;
+  }
+  .info-header::before {
+    content: ""; width: 10rpx; height: 36rpx; 
+    background: linear-gradient(to bottom, #2A8CFF, #49F5A2); 
+    margin-right: 18rpx; border-radius: 6rpx;
+  }
+  
+  .profile-grid { display: flex; gap: 24rpx; margin-bottom: 24rpx; }
+  .grid-item { flex: 1; background: #F0F9FA; padding: 28rpx; border-radius: 24rpx; border: 1rpx solid #E0F2F5;}
+  .full-field { background: #F0F9FA; padding: 28rpx; border-radius: 24rpx; margin-bottom: 24rpx; border: 1rpx solid #E0F2F5;}
+  
+  .label { font-size: 28rpx; color: #6BB1BD; margin-bottom: 14rpx; display: block; font-weight: 500; }
+  .input-box, textarea { font-size: 34rpx; color: #333; width: 100%; font-weight: 500; }
+  .val { font-size: 34rpx; color: #333; font-weight: 500; }
+  
+  /* 保存修改按钮 */
+  .primary-save-btn { 
+    background: linear-gradient(to right, #2A8CFF, #49F5A2); 
+    color: #fff; border-radius: 100rpx; 
+    font-size: 38rpx; margin-top: 20rpx; font-weight: bold;
+    box-shadow: 0 12rpx 24rpx rgba(42, 140, 255, 0.3);
+    border: none;
+    height: 110rpx;
+    line-height: 110rpx;
+  }
+  .primary-save-btn:active { transform: translateY(2rpx); box-shadow: 0 4rpx 12rpx rgba(42, 140, 255, 0.2); }
+  
+  /* 健康档案入口 */
+  .menu-item { 
+    background: #fff; padding: 44rpx; border-radius: 40rpx; 
+    display: flex; justify-content: space-between; align-items: center;
+    border: 1rpx solid #d1e9ed; margin-bottom: 24rpx;
+  }
+  .menu-item:active { background: #F0F9FA; }
+  .menu-left { display: flex; align-items: center; }
+  .menu-icon { font-size: 48rpx; margin-right: 28rpx; }
+  .menu-text { font-size: 36rpx; font-weight: bold; color: #1A5F7A; }
+  .arrow { color: #6BB1BD; font-size: 44rpx; }
+  
+  /*  SOS (悬浮按钮) */
+  .sos-btn {
+    position: fixed; 
+    right: 40rpx; 
+    bottom: 160rpx;
+    width: 140rpx; 
+    height: 140rpx;
+    background: linear-gradient(135deg, #ff4d4f, #cf1322);
+    border-radius: 50%; 
+    z-index: 100;
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    justify-content: center;
+    color: white; 
+    font-weight: bold; 
+    font-size: 38rpx;
+    box-shadow: 0 10rpx 30rpx rgba(255, 77, 79, 0.4); 
+    border: 4rpx solid #fff;
+  }
+  .sos-btn:active { transform: scale(0.95); opacity: 0.9; }
+  .sos-label { font-size: 22rpx; font-weight: normal; margin-top: -2rpx; }
+  
+  /*  登录弹窗 UI  */
+  .userInfo_tank_bg { 
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
+    background: rgba(0,25,30,0.6); z-index: 998; 
+    backdrop-filter: blur(4rpx);
+  }
+  .userInfo_tank { 
+    position: fixed; bottom: 0; width: 100%; 
+    background: #fff; border-radius: 50rpx 50rpx 0 0; 
+    padding: 60rpx 40rpx; box-sizing: border-box; z-index: 999; 
+  }
+  .tank_title { font-size: 42rpx; font-weight: bold; text-align: center; margin-bottom: 50rpx; color: #1A5F7A; }
+  .tank_content { display: flex; align-items: center; margin-bottom: 40rpx; justify-content: space-between; }
+  .tank_content text { font-size: 34rpx; color: #1A5F7A; font-weight: bold; }
+  
+  .avatar_button { 
+    background: #F0F9FA !important; padding: 0 !important; margin: 0 !important; 
+    width: 140rpx !important; height: 140rpx !important; 
+    border-radius: 50% !important; overflow: hidden;
+    border: 2rpx solid #E0F2F5 !important;
+  }
+  .avatar_url { width: 140rpx; height: 140rpx; }
+  
+  .confirm_button { display: flex; gap: 30rpx; margin-top: 60rpx; }
+  .confirm_button button { 
+    flex: 1; height: 100rpx; line-height: 100rpx; border-radius: 50rpx; font-weight: bold; font-size: 34rpx; 
+  }
+  .cancel-btn { background: #F0F9FA; color: #6BB1BD; border: 1rpx solid #E0F2F5; }
+  .confirm-btn { background: linear-gradient(to right, #2A8CFF, #4FACFE); color: white; border: none; }

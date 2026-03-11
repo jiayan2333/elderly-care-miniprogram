@@ -1,0 +1,117 @@
+<view class="container container-silver">
+
+  <!-- 顶部卡片 -->
+
+<view class="user-card" bindtap="{{!userInfo ? 'openLoginTank' : ''}}">
+  <view class="user-info">
+    <view class="avatar-wrapper">
+      <image class="avatar" src="{{userInfo ? userInfo.avatarUrl : '/image/no_login.png'}}"></image>
+      <view wx:if="{{isVIP}}" class="vip-badge">黄金会员</view>
+    </view>
+    <view class="user-detail">
+      <view class="nickname-row">
+        <text class="nickname">{{userInfo ? userInfo.nickName : '点击登录账号'}}</text>
+        <text wx:if="{{userInfo}}" catchtap="tuichu" class="logout-btn">退出</text>
+      </view>
+    </view>
+  </view>
+</view>
+
+  <!-- 工具箱，客服，会员卡片 -->
+<view class="tool-bar">
+  <view class="tool-item" bindtap="openToolbox">
+    <text class="tool-icon">🧰</text>
+    <text>生活工具箱</text>
+  </view>
+  
+  <button open-type="contact" session-from="我的小程序客服" class="tool-item contact-btn" style="width:auto; font-weight:normal; background:none; padding:0; margin:0; line-height:inherit;">
+    <text class="tool-icon">💬</text>
+    <text>客服咨询</text>
+  </button>
+  
+  <view class="tool-item" bindtap="handleVip">
+    <text class="tool-icon">💎</text>
+    <text>{{isVIP ? '已是会员' : '会员充值'}}</text>
+  </view>
+</view>
+  <!--资料输入 -->
+<view class="info-group">
+  <view class="info-header">健康资料</view>
+  <view class="profile-grid">
+    <view class="grid-item">
+      <text class="label">年龄</text>
+      <input class="input-box" type="number" placeholder="填写年龄" value="{{age}}" data-field="age" bindinput="onInputChange"/>
+    </view>
+    <view class="grid-item">
+      <text class="label">生日</text>
+      <picker mode="date" value="{{birthday}}" data-field="birthday" bindchange="onInputChange">
+        <view class="val">{{birthday || '请选择'}}</view>
+      </picker>
+    </view>
+  </view>
+  <view class="full-field">
+    <text class="label">以往病史</text>
+    <textarea auto-height placeholder="如：高血压、糖尿病等" value="{{medicalHistory}}" data-field="medicalHistory" bindinput="onInputChange"></textarea>
+  </view>
+  <view class="full-field">
+    <text class="label">兴趣爱好</text>
+    <input class="input-box" placeholder="填写您的爱好" value="{{hobbies}}" data-field="hobbies" bindinput="onInputChange"/>
+  </view>
+</view>
+
+<view class="info-group">
+  <view class="info-header">联系信息</view>
+  <view class="full-field">
+    <text class="label">子女电话 (SOS拨打此号)</text>
+    <input class="input-box" type="number" placeholder="请填写电话" value="{{childContact}}" data-field="childContact" bindinput="onInputChange"/>
+  </view>
+  <view class="full-field">
+    <text class="label">居住地址</text>
+    <textarea auto-height placeholder="请填写详细住址" value="{{address}}" data-field="address" bindinput="onInputChange"></textarea>
+  </view>
+  <button class="primary-save-btn" bindtap="saveProfile">保存资料</button>
+</view>
+
+  <!-- 健康档案 -->
+
+<view class="menu-item" bindtap="goToHealthRecord">
+  <view class="menu-left">
+    <text class="menu-icon">📋</text>
+    <text class="menu-text">查看健康记录档案</text>
+  </view>
+  <text class="arrow">›</text>
+</view>
+
+  <!-- sos -->
+
+<view class="sos-btn" bindtap="triggerSOS">
+  <text>SOS</text>
+  <view class="sos-label">紧急求助</view>
+</view>
+
+  <!-- 登录功能实现 -->
+<view wx:if="{{userInfo_tank}}">
+  <view class="userInfo_tank_bg" bindtap="closeTank"></view>
+  <view class="userInfo_tank transfromjoin">
+    <view class="tank_title">设置头像昵称</view>
+    
+    <view class="tank_content">
+      <text>头像</text>
+      <button class="avatar_button" open-type="chooseAvatar" bindchooseavatar="onChooseAvatar">
+        <image class="avatar_url" src="{{tempAvatar || '/image/no_login.png'}}"></image>
+      </button>
+    </view>
+    
+    <view class="tank_content">
+      <text>昵称</text>
+      <input class="input-box" type="nickname" placeholder="请输入" bindblur="getNickName" />
+    </view>
+    
+    <view class="confirm_button">
+      <button class="cancel-btn" bindtap="closeTank">取消</button>
+      <button class="confirm-btn" bindtap="submitLogin">确认登录</button>
+    </view>
+  </view>
+</view>
+
+</view>

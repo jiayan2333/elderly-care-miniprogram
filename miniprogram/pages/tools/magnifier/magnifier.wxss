@@ -1,0 +1,78 @@
+.magnifier-container {
+  height: 100vh;
+  background-color: #000;
+  display: flex;
+  flex-direction: column;
+}
+
+.camera-view {
+  width: 100%;
+  height: 75vh; /* 扩大预览区域，给老人更多操作空间 */
+  position: relative;
+}
+
+/* 引导文字样式 */
+.gesture-tip {
+  position: absolute;
+  top: 15%;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 32rpx;
+  pointer-events: none; /* 不遮挡触摸事件 */
+}
+.tip-icon { display: block; font-size: 60rpx; margin-bottom: 10rpx; }
+
+/* 准星角样式 */
+.focus-ui {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 400rpx; height: 400rpx;
+}
+.corner {
+  position: absolute; width: 40rpx; height: 40rpx;
+  border: 6rpx solid #4FACFE;
+}
+.top-left { top: 0; left: 0; border-right: none; border-bottom: none; }
+.top-right { top: 0; right: 0; border-left: none; border-bottom: none; }
+.bottom-left { bottom: 0; left: 0; border-right: none; border-top: none; }
+.bottom-right { bottom: 0; right: 0; border-left: none; border-top: none; }
+
+.control-panel {
+  flex: 1;
+  background-color: #E6F3F5;
+  border-radius: 40rpx 40rpx 0 0;
+  padding: 40rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.flash-btn {
+  width: 90%;
+  height: 130rpx;
+  background: #fff;
+  border-radius: 65rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 40rpx;
+  color: #1A5F7A;
+  font-weight: bold;
+  box-shadow: 0 8rpx 20rpx rgba(0,0,0,0.1);
+}
+
+.btn-on {
+  background: linear-gradient(to right, #2A8CFF, #4FACFE) !important;
+  color: #fff !important;
+}
+
+.bottom-info {
+  display: flex;
+  gap: 40rpx;
+  margin-top: 40rpx;
+}
+.info-item { font-size: 26rpx; color: #6BB1BD; }

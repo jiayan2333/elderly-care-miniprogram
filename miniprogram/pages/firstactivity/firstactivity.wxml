@@ -1,0 +1,87 @@
+
+
+<view class="container">
+
+<!-- 顶部标题 -->
+<view class="page-header">
+  <text class="page-title">社区活动</text>
+</view>
+
+<!-- 加载中 -->
+<view wx:if="{{loading}}" class="loading-wrap">
+  <view class="loading-spinner"></view>
+  <text>正在加载活动...</text>
+</view>
+
+<!-- 活动列表 -->
+<block wx:else>
+  <block wx:for="{{activities}}" wx:key="_id">
+    <view class="activity-card">
+
+      <!-- 活动封面 -->
+      <image
+        class="activity-cover"
+        src="{{item.cover}}" mode="aspectFill"
+        mode="aspectFill"
+      />
+
+      <!-- 活动信息 -->
+      <view class="activity-info">
+
+        <!-- 标题 + 官方 -->
+        <view class="activity-title">
+          <text>{{item.title}}</text>
+          <text
+            wx:if="{{item.isOfficial}}"
+            class="official-tag"
+          >
+            官方
+          </text>
+        </view>
+
+        <!-- 元信息 -->
+        <view class="activity-meta">
+          <text>时间：{{item.time}}</text>
+        </view>
+
+        <view class="activity-meta">
+          <text>地点：{{item.location}}</text>
+        </view>
+
+        <view class="activity-meta">
+          <text>
+            人数：{{item.joinCount}} / {{item.maxPeople}}
+          </text>
+        </view>
+
+        <!-- 操作按钮 -->
+        <button
+   class="apply-btn {{item.isJoined ? 'disabled' : ''}}"
+  size="mini"
+  type="primary"
+  data-id="{{item._id}}"
+  bindtap="onApply"
+  disabled="{{item.isJoined || item.joinCount >= item.maxPeople}}"
+>
+  {{
+    item.isJoined
+      ? '已报名'
+      : (item.joinCount >= item.maxPeople ? '已满' : '申请参加')
+  }}
+</button>
+
+
+      </view>
+    </view>
+  </block>
+
+  <!-- 空状态 -->
+  <view
+    wx:if="{{activities.length === 0}}"
+    class="error-wrap"
+  >
+    <text class="error-text">暂无可参加的活动</text>
+  </view>
+</block>
+
+</view>

@@ -1,0 +1,250 @@
+<view class="container">
+
+<view class="top-banner">
+  <image src="{{topBanner}}" mode="aspectFill" class="top-banner-img" />
+</view>
+<view class="header">
+  <view class="header-left">
+    <text class="title">{{userName}}</text>
+    <text class="subtitle">今天也是美好的一天</text>
+  </view>
+  <view class="header-right">
+    <text class="temp"> </text>
+    <text class="weather-desc"> </text>
+  </view>
+</view>
+
+<view wx:if="{{needRemind}}" class="medicine-card">
+  <view class="medicine-close" bindtap="closeMedicineCard">×</view>
+  <view class="medicine-title">💊 吃药提醒</view>
+  <view class="medicine-content">
+    现在是 <text class="medicine-time">{{nextReminderTime}}</text> ，请按时服药
+  </view>
+  <view class="medicine-sub">今日剩余 {{remainingCount}} 次</view>
+  <view class="medicine-btn" bindtap="takeMedicine">已服药</view>
+</view>
+
+<view class="card" bindtap="goHealth">
+  <view class="card-header">
+    <text class="icon-red">❤️</text>
+    <text class="card-title">健康管理</text>
+  </view>
+  <view class="grid-2">
+    <view class="status-item bg-red" bindtap="goFirstTxtpro">
+      <view class="icon-circle">💊</view>
+      <text class="status-label">每日提醒</text>
+      <text class="status-val">查看详情</text>
+    </view>
+    <view class="status-item bg-blue" bindtap="goFirstClock">
+      <view class="icon-circle">🩺</view>
+      <text class="status-label">健康记录</text>
+      <text class="status-val">查看详情</text>
+    </view>
+  </view>
+</view>
+
+<!-- 志愿者陪伴 -->
+
+<view class="card">
+
+<view class="card-header-flex">
+
+  <view class="flex-row">
+
+    <text class="icon-warm">👥</text>
+
+    <text class="card-title">志愿者陪伴</text>
+
+  </view>
+
+  <text class="more" bindtap="goVolunteer">查看更多 ></text>
+
+</view>
+
+
+
+<scroll-view scroll-x class="volunteer-scroll">
+
+  <view class="volunteer-item" bindtap="goVolunteer">
+
+    <image src="cloud://cloud-littlename-5f59ieubb03a1e3.636c-cloud-littlename-5f59ieubb03a1e3-1404543063/userimg/志愿者/志愿者.a.png" mode="aspectFill" class="avatar" />
+
+    <text class="v-name">王露</text>
+
+    <text class="v-skill">大学生志愿者</text>
+
+    <text class="v-skill">陪聊 · 日常照料</text>
+
+  </view>
+
+  <view class="volunteer-item" bindtap="goVolunteer">
+
+    <image src="cloud://cloud-littlename-5f59ieubb03a1e3.636c-cloud-littlename-5f59ieubb03a1e3-1404543063/userimg/志愿者/志愿者.c.jpg" mode="aspectFill" class="avatar" />
+
+    <text class="v-name">王悦</text>
+
+    <text class="v-skill">大学生志愿者</text>
+
+    <text class="v-skill">陪读 · 读报讲解</text>
+
+  </view>
+
+  <view class="volunteer-item" bindtap="goVolunteer">
+
+    <image src="cloud://cloud-littlename-5f59ieubb03a1e3.636c-cloud-littlename-5f59ieubb03a1e3-1404543063/userimg/志愿者/志愿者.d.jpg" mode="aspectFill" class="avatar" />
+
+    <text class="v-name">王畅</text>
+
+    <text class="v-skill">大学生志愿者</text>
+
+    <text class="v-skill">陪护 · 康复护理</text>
+
+  </view>
+
+  <view class="volunteer-item" bindtap="goVolunteer">
+
+    <image src="cloud://cloud-littlename-5f59ieubb03a1e3.636c-cloud-littlename-5f59ieubb03a1e3-1404543063/userimg/志愿者/志愿者.b.jpg" mode="aspectFill" class="avatar" />
+
+    <text class="v-name">伯广睿</text>
+
+    <text class="v-skill">大学生志愿者</text>
+
+    <text class="v-skill">代办 · 上门协助</text>
+
+  </view>
+
+  <view class="volunteer-item" bindtap="goVolunteer">
+
+    <image src="cloud://cloud-littlename-5f59ieubb03a1e3.636c-cloud-littlename-5f59ieubb03a1e3-1404543063/userimg/志愿者/志愿者.e.jpg" mode="aspectFill" class="avatar" />
+
+    <text class="v-name">方雪</text>
+
+    <text class="v-skill">大学生志愿者</text>
+
+    <text class="v-skill">陪伴 · 散心解闷</text>
+
+  </view>
+
+  <view class="volunteer-item" bindtap="goVolunteer">
+
+    <image src="cloud://cloud-littlename-5f59ieubb03a1e3.636c-cloud-littlename-5f59ieubb03a1e3-1404543063/userimg/志愿者/志愿者.f.jpg" mode="aspectFill" class="avatar" />
+
+    <text class="v-name">董明宇</text>
+
+    <text class="v-skill">大学生志愿者</text>
+
+    <text class="v-skill">陪玩 · 棋牌娱乐</text>
+
+  </view>
+
+  <view class="volunteer-item" bindtap="goVolunteer">
+
+    <image src="cloud://cloud-littlename-5f59ieubb03a1e3.636c-cloud-littlename-5f59ieubb03a1e3-1404543063/userimg/志愿者/志愿者.g.jpg" mode="aspectFill" class="avatar" />
+
+    <text class="v-name">刘忠良</text>
+
+    <text class="v-skill">大学生志愿者</text>
+
+    <text class="v-skill">陪聊 · 日常照料</text>
+
+  </view>
+
+  <view class="volunteer-item" bindtap="goVolunteer">
+
+    <image src="cloud://cloud-littlename-5f59ieubb03a1e3.636c-cloud-littlename-5f59ieubb03a1e3-1404543063/userimg/志愿者/志愿者.h.jpg" mode="aspectFill" class="avatar" />
+
+    <text class="v-name">季诗洋</text>
+
+    <text class="v-skill">荧欢公司员工</text>
+
+    <text class="v-skill">陪诊 · 就医陪同</text>
+
+  </view>
+
+  <view class="volunteer-item" bindtap="goVolunteer">
+
+    <image src="cloud://cloud-littlename-5f59ieubb03a1e3.636c-cloud-littlename-5f59ieubb03a1e3-1404543063/userimg/志愿者/志愿者.i.jpg" mode="aspectFill" class="avatar" />
+
+    <text class="v-name">钟欣阳</text>
+
+    <text class="v-skill">荧欢公司员工</text>
+
+    <text class="v-skill">陪练 · 保健养生</text>
+
+  </view>
+
+</scroll-view>
+
+</view>
+
+<view class="card">
+  <view class="card-header-flex">
+    <view class="flex-row">
+      <text class="icon-warm">❤️</text>
+      <text class="card-title">心理关怀</text>
+    </view>
+  </view>
+  <view class="psychology-banner" bindtap="goPsychology">
+    <image src="{{psychologyBanner}}" mode="aspectFill" class="psychology-img" />
+  </view>
+</view>
+
+<view class="card">
+  <view class="card-header-flex">
+    <view class="flex-row">
+      <text class="icon-home">🏠</text>
+      <text class="card-title">家政服务</text>
+    </view>
+  </view>
+  <view class="home-service-scroll">
+    <view class="home-service-item" bindtap="goHomeService">
+      <image src="cloud://cloud-littlename-5f59ieubb03a1e3.636c-cloud-littlename-5f59ieubb03a1e3-1404543063/userimg/3.jpg" class="home-service-img" />
+    </view>
+  </view>
+</view>
+
+<view class="card" bindtap="goRecommend">
+  <view class="card-header">
+    <text class="icon-green">🥗</text>
+    <text class="card-title">今日养生推荐</text>
+  </view>
+  <view class="video-box">
+    <video src="{{recommend.videoUrl}}" poster="{{recommend.poster}}" autoplay="{{recommend.videoConfig.autoplay}}" controls="{{recommend.videoConfig.controls}}" loop="{{recommend.videoConfig.loop}}" muted="{{recommend.videoConfig.muted}}" show-center-play-btn="{{recommend.videoConfig.showCenterPlayBtn}}" object-fit="{{recommend.videoConfig.objectFit}}" bindplay="onVideoPlay" bindpause="onVideoPause" binderror="onVideoError" bindended="onVideoEnded" class="recommend-video" enable-play-gesture="{{true}}">
+      <view class="video-placeholder">视频加载中...</view>
+    </video>
+    <view class="video-info"><text>{{recommend.title}}</text></view>
+  </view>
+</view>
+
+<view class="card">
+  <view class="card-header">
+    <text class="icon-purple">🧩</text>
+    <text class="card-title">生活与学习</text>
+  </view>
+  <view class="grid-2 services-grid">
+    <view class="service-btn" bindtap="goEntertainment"><image src="{{entertainmentImg}}" mode="aspectFill" class="service-img" /></view>
+    <view class="service-btn" bindtap="goFood"><image src="{{foodImg}}" mode="aspectFill" class="service-img" /></view>
+    <view class="service-btn" bindtap="goStudy"><image src="{{studyImg}}" mode="aspectFill" class="service-img" /></view>
+    <view class="service-btn" bindtap="goVip"><image src="{{vipImg}}" mode="aspectFill" class="service-img" /></view>
+  </view>
+</view>
+
+<view class="activity-entry">
+  <view class="entry-header">
+    <text class="entry-title">社区活动</text>
+    <text class="entry-more" bindtap="goActivityList">查看更多 ></text>
+  </view>
+  <scroll-view scroll-x class="entry-scroll" show-scrollbar="false">
+    <block wx:for="{{activities}}" wx:key="_id">
+      <view class="entry-card" bindtap="goActivityDetail" data-id="{{item._id}}">
+        <image class="card-cover" src="{{item.cover}}" mode="aspectFill" />
+        <text class="card-title">{{item.title}}</text>
+        <text wx:if="{{item.isOfficial}}" class="official-tag">官方</text>
+        <text class="card-meta">人数：{{item.joinCount}} / {{item.maxPeople}}</text>
+      </view>
+    </block>
+    <view wx:if="{{activities.length === 0}}" class="error-wrap"><text class="error-text">暂无可参加的活动</text></view>
+  </scroll-view>
+</view>
+
+</view>

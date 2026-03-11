@@ -1,0 +1,94 @@
+<view class="container">
+  <view class="setup-section">
+    <view class="section-header">
+      <text class="section-title">服药提醒设置</text>
+      <text class="section-subtitle">最多可设置 8 组提醒</text>
+    </view>
+    
+    <view class="time-picker-list">
+      <view class="time-picker-card" wx:for="{{tempTimes}}" wx:key="index">
+        <view class="card-header">
+          <text class="card-index">提醒清单 {{index + 1}}</text>
+          <view class="remove-icon" wx:if="{{tempTimes.length > 1}}" bindtap="removeTime" data-index="{{index}}">
+            <icon type="clear" size="22" color="#ff8a80"></icon>
+          </view>
+        </view>
+
+        <view class="input-group">
+          <view class="input-item">
+            <text class="input-label">药品名称</text>
+            <input 
+              class="medicine-input" 
+              placeholder="请输入药名" 
+              value="{{item.name}}" 
+              bindinput="bindNameInput" 
+              data-index="{{index}}"
+              placeholder-style="color:#cbd5e0;"
+            />
+          </view>
+
+          <view class="row-inputs">
+            <view class="input-item flex-1">
+              <text class="input-label">服药剂量</text>
+              <input 
+                class="medicine-input" 
+                placeholder="如: 2片/1袋" 
+                value="{{item.dose}}" 
+                bindinput="bindDoseInput" 
+                data-index="{{index}}"
+                placeholder-style="color:#cbd5e0;"
+              />
+            </view>
+            <view class="input-item flex-1">
+              <text class="input-label">提醒时间</text>
+              <picker mode="time" value="{{item.time}}" bindchange="bindTimeChange" data-index="{{index}}">
+                <view class="time-display-box">
+                  <text class="time-value">{{item.time}}</text>
+                </view>
+              </picker>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+    
+  <view class="action-bar flex-row">
+  <button class="add-btn-small" bindtap="addTime" hover-class="btn-hover-gray"> 添加药品</button>
+  <button class="save-btn-small" bindtap="saveTimes" hover-class="btn-hover-dark">保存</button>
+</view>
+</view>
+
+
+  <view class="stats-section" wx:if="{{nextReminderTime}}">
+    <view class="stat-main-card">
+      <view class="stat-row">
+        <text class="stat-tag">下次服药</text>
+        <text class="stat-time-val">{{nextReminderTime}}</text>
+      </view>
+      <view class="stat-grid">
+        <view class="grid-item">
+          <text class="grid-label">今日剩余</text>
+          <view><text class="grid-num">{{remainingCount}}</text><text class="grid-unit">次</text></view>
+        </view>
+        <view class="grid-item">
+          <text class="grid-label">总计划</text>
+          <view><text class="grid-num">{{totalCount}}</text><text class="grid-unit">次</text></view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="list-section" wx:if="{{savedTimes.length > 0}}">
+    <text class="section-title">已生效的计划</text>
+    <view class="saved-item" wx:for="{{savedTimes}}" wx:key="index">
+      <view class="saved-left">
+        <view class="saved-time-tag">{{item.time}}</view>
+        <view class="saved-info">
+          <text class="saved-name">{{item.name}}</text>
+          <text class="saved-dose">{{item.dose}}</text>
+        </view>
+      </view>
+      <view class="delete-btn" bindtap="deleteTime" data-index="{{index}}">删除</view>
+    </view>
+  </view>
+</view>

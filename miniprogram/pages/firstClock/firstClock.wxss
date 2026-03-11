@@ -1,0 +1,161 @@
+
+page {
+  background-color: #E8F2FF; 
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', sans-serif;
+}
+
+.container { padding: 40rpx 40rpx 100rpx 40rpx; }
+
+/* 标题：湖蓝色调*/
+.section-header { margin-bottom: 50rpx; }
+.section-title { 
+  font-size: 42rpx; 
+  font-weight: 800; 
+  color: #3D5A80; 
+  letter-spacing: 2rpx;
+}
+.section-subtitle { 
+  font-size: 26rpx; 
+  color: #98B4D4; 
+  margin-top: 12rpx; 
+  display: block; 
+}
+
+/* 药品卡片 */
+.time-picker-card {
+  background-color: #FFFFFF; 
+  border-radius: 40rpx;
+  padding: 45rpx;
+  margin-bottom: 40rpx;
+  border: 4rpx solid #F0F7FF;
+  box-shadow: 0 15rpx 40rpx rgba(180, 210, 255, 0.4); 
+  position: relative;
+}
+
+/* 卡片点缀 */
+.time-picker-card::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 40rpx;
+  width: 60rpx; height: 6rpx;
+  background: linear-gradient(90deg, #A2D2FF, #CCF1FF);
+  border-radius: 0 0 10rpx 10rpx;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 35rpx;
+}
+.card-index { 
+  font-size: 28rpx; 
+  color: #4381d7; 
+  font-weight: bold; 
+}
+
+/* 输入区域 */
+.input-label { 
+  font-size: 28rpx; 
+  color: #349fd1; 
+  margin-bottom: 18rpx; 
+  margin-left: 6rpx;
+  display: block; 
+}
+.medicine-input {
+  background: #F9FCFF;
+  height: 100rpx;
+  border-radius: 24rpx;
+  padding: 0 35rpx;
+  font-size: 32rpx;
+  color: #3D5A80;
+  border: 1rpx solid #E1EDFF;
+}
+
+.row-inputs { 
+  display: flex; 
+  gap: 30rpx; 
+  margin-top: 40rpx; 
+}
+.flex-1 { flex: 1; }
+
+/*  时间选择框 */
+.time-display-box {
+  background: linear-gradient(135deg, #E0F2FF, #F0F8FF);
+  height: 100rpx;
+  border-radius: 24rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1rpx solid #CDE4FF;
+}
+.time-value { font-size: 36rpx; font-weight: 700; color: #4895EF; }
+
+/*  按钮区域 */
+.action-bar.flex-row {
+  display: flex;
+  gap: 24rpx;
+  margin: 50rpx 0;
+}
+.add-btn-small, .save-btn-small {
+  margin: 0 !important;
+  height: 94rpx;
+  line-height: 94rpx;
+  border-radius: 30rpx;
+  font-size: 28rpx;
+  font-weight: 600;
+}
+.add-btn-small {
+  flex: 2;
+  background: #FFFFFF;
+  color: #4895EF;
+  border: 2rpx solid #B4D7FF;
+}
+.save-btn-small {
+  flex: 3;
+  background: linear-gradient(135deg, #4895EF, #4CC9F0);
+  color: #ffffff;
+  box-shadow: 0 10rpx 25rpx rgba(72, 149, 239, 0.3);
+}
+
+/* 状态卡片 */
+.stat-main-card {
+  background: linear-gradient(135deg, #4895EF, #B4E7FF);
+  border-radius: 44rpx; 
+  padding: 55rpx 45rpx; 
+  margin: 50rpx 0;
+  color: #FFFFFF;
+  box-shadow: 0 20rpx 45rpx rgba(76, 201, 240, 0.2);
+}
+.stat-tag { font-size: 24rpx; opacity: 0.9; font-weight: 500; }
+.stat-time-val { 
+  font-size: 56rpx; 
+  font-weight: 800; 
+  display: block; 
+  margin: 15rpx 0 40rpx 0; 
+}
+.stat-grid { 
+  display: flex; 
+  border-top: 1rpx solid rgba(255, 255, 255, 0.4); 
+  padding-top: 40rpx; 
+}
+.grid-item { flex: 1; text-align: center; }
+.grid-label { font-size: 24rpx; opacity: 0.8; margin-bottom: 12rpx; display: block; }
+.grid-num { font-size: 48rpx; font-weight: 800; }
+.grid-unit { font-size: 24rpx; opacity: 0.8; }
+
+/* 增加留白 */
+.list-section { margin-top: 80rpx; }
+.saved-item {
+  background: #FFFFFF; 
+  padding: 40rpx; 
+  border-radius: 36rpx;
+  display: flex; 
+  justify-content: space-between; 
+  align-items: center;
+  margin-bottom: 35rpx;
+  box-shadow: 0 10rpx 30rpx rgba(180, 210, 255, 0.15);
+}
+.saved-time-tag { color: #4895EF; font-size: 38rpx; font-weight: 800; }
+.saved-name { font-size: 32rpx; color: #3D5A80; font-weight: 700; }
+.delete-btn { color: #FF8B94; font-size: 26rpx; font-weight: 600; }

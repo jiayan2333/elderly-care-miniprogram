@@ -1,0 +1,74 @@
+<view class="container">
+  
+  <view class="swiper-container">
+    <swiper
+      class="swiper"
+      indicator-dots="{{true}}"
+      autoplay="{{false}}"
+      interval="{{3000}}"
+      duration="{{500}}"
+      circular="{{true}}"
+      indicator-color="rgba(255, 255, 255, 0.6)"
+      indicator-active-color="#00F2FE"
+    >
+      <swiper-item wx:for="{{bannerList}}" wx:key="index">
+        <image
+          class="swiper-image"
+          src="{{item}}"
+          mode="aspectFill"
+          bindtap="previewImage"
+          data-url="{{item}}"
+          data-urls="{{bannerList}}"
+        />
+      </swiper-item>
+    </swiper>
+    <view class="scroll-hint">
+      <text class="hint-text">← 左滑学习更多图文知识 →</text>
+    </view>
+  </view>
+
+  <view class="video-list">
+    <view
+      class="video-item"
+      wx:for="{{videoList}}"
+      wx:key="index"
+    >
+      <view class="video-header">
+        <text class="video-title">{{item.title}}</text>
+      </view>
+
+      <video
+        wx:if="{{!item.isAvi}}"
+        src="{{item.url}}"
+        poster="{{item.poster || ''}}"
+        controls
+        show-mute-btn="{{true}}"
+        enable-play-gesture="{{true}}"
+        vnet-detach="{{false}}"
+        play-btn-position="center"
+        object-fit="cover"
+      ></video>
+
+      <view wx:else class="avi-placeholder">
+        <image
+          class="placeholder-image"
+          src="{{item.poster}}"
+          mode="aspectFill"
+        ></image>
+      </view>
+
+      <view class="video-info">
+        <view class="info-left">
+          <text class="icon-play">▶</text>
+          <text class="play-count">{{item.playCount || '1000+'}} 次播放</text>
+        </view>
+        <view class="info-right">
+          <text class="tag">今日推荐</text>
+        </view>
+      </view>
+
+    </view>
+  </view>
+
+  <view style="height: 40rpx;"></view>
+</view>

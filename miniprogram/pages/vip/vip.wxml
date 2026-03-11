@@ -1,0 +1,211 @@
+<view class="vip-container">
+  <!-- 用户信息区域 -->
+  <view class="user-section">
+    <view class="user-bg"></view>
+    <view class="user-content">
+      <view class="avatar-wrapper">
+        <image class="avatar" src="{{userInfo ? userInfo.avatarUrl : '/image/no_login.png'}}"></image>
+        <view wx:if="{{isVIP}}" class="vip-badge">黄金会员</view>
+      </view>
+      <view class="user-info">
+        <view class="nickname">{{userInfo ? userInfo.nickName : '未登录用户'}}</view>
+        <view class="user-status">
+          <text wx:if="{{isVIP}}">您已享受黄金会员特权</text>
+          <text wx:else>开通会员享受更多特权</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 套餐选择 - 左右滑动 -->
+  <view class="packages-section">
+    <view class="section-title">
+      <text class="title-icon">🎫</text>
+      <text>黄金会员</text>
+    </view>
+    <scroll-view class="package-scroll" scroll-x="true" scroll-with-animation>
+      <view class="packages-list">
+        <view class="package-card {{selectedIndex === index ? 'selected' : ''}}"
+              wx:for="{{packages}}"
+              wx:key="index"
+              bindtap="selectPackage"
+              data-index="{{index}}">
+          <view class="package-badge" wx:if="{{item.badge}}">{{item.badge}}</view>
+          <view class="package-type">{{item.name}}</view>
+          <view class="package-desc">{{item.desc}}</view>
+          <view class="package-price">
+            <text class="price-symbol">¥</text>
+            <text class="price-num">{{item.price}}</text>
+            <text class="price-unit" wx:if="{{item.unit}}">{{item.unit}}</text>
+          </view>
+          <view class="package-period">{{item.period}}</view>
+          <view class="package-tag" wx:if="{{item.tag}}">{{item.tag}}</view>
+          <view wx:if="{{selectedIndex === index}}" class="check-icon">✓</view>
+        </view>
+      </view>
+    </scroll-view>
+
+    <!-- 套餐优惠详情 -->
+    <view class="package-detail" wx:if="{{selectedPackageDetail}}">
+      <view class="detail-content">
+        <text class="detail-icon">💡</text>
+        <text class="detail-text">{{selectedPackageDetail}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 会员特权介绍 -->
+  <view class="privileges-section">
+    <view class="section-title">
+      <text class="title-icon">💎</text>
+      <text>会员特权</text>
+    </view>
+    <view class="privileges-list">
+      <view class="privilege-item">
+        <view class="privilege-emoji">🎬</view>
+        <view class="privilege-content">
+          <view class="privilege-name">视频畅看</view>
+          <view class="privilege-desc">解锁专属VIP视频，尽情观看</view>
+        </view>
+      </view>
+      <view class="privilege-item">
+        <view class="privilege-emoji">📚</view>
+        <view class="privilege-content">
+          <view class="privilege-name">免费学习</view>
+          <view class="privilege-desc">解锁全部学习课程，知识免费学</view>
+        </view>
+      </view>
+      <view class="privilege-item">
+        <view class="privilege-emoji">💬</view>
+        <view class="privilege-content">
+          <view class="privilege-name">优先服务</view>
+          <view class="privilege-desc">专属客服通道，问题优先处理</view>
+        </view>
+      </view>
+      <view class="privilege-item">
+        <view class="privilege-emoji">👑</view>
+        <view class="privilege-content">
+          <view class="privilege-name">尊贵标识</view>
+          <view class="privilege-desc">黄金会员身份，彰显尊贵</view>
+        </view>
+      </view>
+      <view class="privilege-item">
+        <view class="privilege-emoji">🚀</view>
+        <view class="privilege-content">
+          <view class="privilege-name">优先体验</view>
+          <view class="privilege-desc">新功能优先体验，抢占先机</view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 底部支付栏 -->
+  <view class="vip-footer">
+    <button class="pay-btn" bindtap="handlePay" disabled="{{isVIP}}">
+      {{isVIP ? '已是会员' : '确认协议并以¥' + selectedPrice + '元支付'}}
+    </button>
+    <view wx:if="{{!isVIP}}" class="agreement-text">
+      点击支付即表示同意《会员服务协议》及《自动续费服务规则》
+    </view>
+  </view>
+
+  <!-- 调试按钮 -->
+  <view wx:if="{{isVIP}}" class="hidden-debug-btn" bindtap="handleDebugReset"></view>
+
+  <!-- 支付方式选择弹窗 -->
+  <view class="payment-modal" wx:if="{{showPaymentModal}}">
+    <view class="modal-mask" bindtap="closePaymentModal"></view>
+    <view class="modal-content">
+      <view class="modal-header">
+        <view class="modal-title">选择支付方式</view>
+        <view class="modal-close" bindtap="closePaymentModal">×</view>
+      </view>
+      <view class="payment-amount">¥{{selectedPrice}}</view>
+      <view class="payment-methods">
+        <view class="payment-method {{selectedMethod === 'wechat' ? 'selected' : ''}}" bindtap="selectPaymentMethod" data-method="wechat">
+          <view class="method-icon wechat-icon">💬</view>
+          <view class="method-info">
+            <view class="method-name">微信支付</view>
+            <view class="method-desc">推荐使用</view>
+          </view>
+          <view class="method-check" wx:if="{{selectedMethod === 'wechat'}}">✓</view>
+        </view>
+        <view class="payment-method {{selectedMethod === 'alipay' ? 'selected' : ''}}" bindtap="selectPaymentMethod" data-method="alipay">
+          <view class="method-icon alipay-icon">💰</view>
+          <view class="method-info">
+            <view class="method-name">支付宝</view>
+            <view class="method-desc">快捷支付</view>
+          </view>
+          <view class="method-check" wx:if="{{selectedMethod === 'alipay'}}">✓</view>
+        </view>
+        <view class="payment-method {{selectedMethod === 'cloudpay' ? 'selected' : ''}}" bindtap="selectPaymentMethod" data-method="cloudpay">
+          <view class="method-icon cloudpay-icon">☁️</view>
+          <view class="method-info">
+            <view class="method-name">云闪付</view>
+            <view class="method-desc">银联支付</view>
+          </view>
+          <view class="method-check" wx:if="{{selectedMethod === 'cloudpay'}}">✓</view>
+        </view>
+        <view class="payment-method {{selectedMethod === 'bankcard' ? 'selected' : ''}}" bindtap="selectPaymentMethod" data-method="bankcard">
+          <view class="method-icon bankcard-icon">💳</view>
+          <view class="method-info">
+            <view class="method-name">银行卡</view>
+            <view class="method-desc">储蓄卡/信用卡</view>
+          </view>
+          <view class="method-check" wx:if="{{selectedMethod === 'bankcard'}}">✓</view>
+          <view class="method-arrow" wx:else>›</view>
+        </view>
+      </view>
+      <button class="confirm-pay-btn" bindtap="confirmPayment" disabled="{{!selectedMethod}}">确认支付</button>
+    </view>
+
+    <!-- 银行卡选择弹窗 -->
+    <view class="bank-modal" wx:if="{{showBankModal}}">
+      <view class="modal-mask" bindtap="closeBankModal"></view>
+      <view class="modal-content bank-content">
+        <view class="modal-header">
+          <view class="modal-title">选择银行</view>
+          <view class="modal-close" bindtap="closeBankModal">×</view>
+        </view>
+        <view class="bank-list">
+          <view class="bank-item {{selectedBank === 'icbc' ? 'selected' : ''}}" bindtap="selectBank" data-bank="icbc">
+            <view class="bank-icon icbc"></view>
+            <view class="bank-name">中国工商银行</view>
+            <view class="bank-check" wx:if="{{selectedBank === 'icbc'}}">✓</view>
+          </view>
+          <view class="bank-item {{selectedBank === 'abc' ? 'selected' : ''}}" bindtap="selectBank" data-bank="abc">
+            <view class="bank-icon abc"></view>
+            <view class="bank-name">中国农业银行</view>
+            <view class="bank-check" wx:if="{{selectedBank === 'abc'}}">✓</view>
+          </view>
+          <view class="bank-item {{selectedBank === 'boc' ? 'selected' : ''}}" bindtap="selectBank" data-bank="boc">
+            <view class="bank-icon boc"></view>
+            <view class="bank-name">中国银行</view>
+            <view class="bank-check" wx:if="{{selectedBank === 'boc'}}">✓</view>
+          </view>
+          <view class="bank-item {{selectedBank === 'ccb' ? 'selected' : ''}}" bindtap="selectBank" data-bank="ccb">
+            <view class="bank-icon ccb"></view>
+            <view class="bank-name">中国建设银行</view>
+            <view class="bank-check" wx:if="{{selectedBank === 'ccb'}}">✓</view>
+          </view>
+          <view class="bank-item {{selectedBank === 'comm' ? 'selected' : ''}}" bindtap="selectBank" data-bank="comm">
+            <view class="bank-icon comm"></view>
+            <view class="bank-name">交通银行</view>
+            <view class="bank-check" wx:if="{{selectedBank === 'comm'}}">✓</view>
+          </view>
+          <view class="bank-item {{selectedBank === 'cmb' ? 'selected' : ''}}" bindtap="selectBank" data-bank="cmb">
+            <view class="bank-icon cmb"></view>
+            <view class="bank-name">招商银行</view>
+            <view class="bank-check" wx:if="{{selectedBank === 'cmb'}}">✓</view>
+          </view>
+          <view class="bank-item {{selectedBank === 'spdb' ? 'selected' : ''}}" bindtap="selectBank" data-bank="spdb">
+            <view class="bank-icon spdb"></view>
+            <view class="bank-name">浦发银行</view>
+            <view class="bank-check" wx:if="{{selectedBank === 'spdb'}}">✓</view>
+          </view>
+        </view>
+        <button class="confirm-bank-btn" bindtap="confirmBank" disabled="{{!selectedBank}}">确定</button>
+      </view>
+    </view>
+  </view>
+</view>

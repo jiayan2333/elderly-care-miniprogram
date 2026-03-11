@@ -1,0 +1,82 @@
+.calendar-container {
+  min-height: 100vh;
+  background-color: #fdf5e6;
+  padding: 40rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.fortune-stamp {
+  position: absolute;
+  top: 60rpx;
+  right: 50rpx;
+  padding: 10rpx 20rpx;
+  border: 6rpx double #b22222;
+  color: #b22222;
+  font-weight: bold;
+  font-size: 32rpx;
+  transform: rotate(10deg);
+  border-radius: 12rpx;
+}
+
+.date-card { text-align: center; margin-top: 60rpx; }
+.year-month { font-size: 36rpx; color: #444; }
+.day-number { font-size: 200rpx; font-weight: bold; line-height: 1; margin: 20rpx 0; color: #222; }
+.week-day { font-size: 36rpx; color: #666; }
+
+.lucky-section {
+  margin: 50rpx 0;
+  padding: 30rpx;
+  border-top: 2rpx solid #d3b17d;
+  border-bottom: 2rpx solid #d3b17d;
+  width: 90%;
+  text-align: center;
+}
+
+.zen-quote {
+  font-size: 32rpx;
+  font-style: italic;
+  color: #3d2b1f;
+  margin-bottom: 24rpx;
+  display: block;
+}
+
+.lucky-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 26rpx;
+  color: #5d4037;
+  gap: 10rpx;
+}
+
+.lucky-tag-mini {
+  background-color: #b22222;
+  color: #fff;
+  padding: 2rpx 8rpx;
+  border-radius: 4rpx;
+  font-size: 22rpx;
+}
+
+.luck-board {
+  width: 100%;
+  border: 4rpx solid #3d2b1f;
+  display: flex;
+  background: #fff;
+}
+
+.luck-item { flex: 1; display: flex; flex-direction: column; align-items: center; padding: 40rpx 15rpx; }
+.luck-tag { font-size: 64rpx; font-weight: bold; margin-bottom: 20rpx; }
+.yi .luck-tag { color: #b22222; }
+.bi .luck-tag { color: #5d4037; } 
+.luck-content { font-size: 32rpx; line-height: 1.6; text-align: center; color: #333; }
+.luck-divider { width: 2rpx; background-color: #3d2b1f; }
+
+.shake-tips {
+  margin-top: 60rpx;
+  font-size: 24rpx;
+  color: #ccc;
+}

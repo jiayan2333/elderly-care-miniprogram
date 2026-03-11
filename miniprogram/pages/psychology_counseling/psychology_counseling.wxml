@@ -1,0 +1,18 @@
+
+<view class="container">
+    <view class="header">
+        <text class="title">心理咨询师</text>
+        <text class="subtitle">专业团队 为您守护心理健康</text>
+    </view>
+
+    <view class="counselor-list">
+        <view class="counselor-card" wx:for="{{counselorList}}" wx:key="id" bindtap="onCounselorTap" data-id="{{item.id}}">
+            <image class="counselor-avatar" src="{{item.avatar}}" mode="aspectFill"></image>
+            <view class="counselor-info">
+                <view class="counselor-name">{{item.name}}</view>
+                <view class="counselor-intro">{{item.introduction}}</view>
+                <view class="counselor-btn">查看详情</view>
+            </view>
+        </view>
+    </view>
+</view>
