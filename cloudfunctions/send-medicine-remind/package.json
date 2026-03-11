@@ -1,0 +1,9 @@
+{
+  "name": "send-medicine-remind",
+  "version": "1.0.0",
+  "description": "吃药提醒定时发送云函数",
+  "main": "index.js",
+  "dependencies": {
+    "wx-server-sdk": "latest"
+  }
+}
